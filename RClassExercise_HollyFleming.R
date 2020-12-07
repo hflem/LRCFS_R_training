@@ -109,4 +109,66 @@ mRIID[3,2] <- c(2.45); mRIID
 
 ## 5 Joint matrices
 
+evi62 <- rbind(Evi3,Evi3R); evi62
+evi34 <- cbind(Evi3,Evi3R); evi34
+
+# a)
+myList1 <- list(evi34, evi62); myList1
+
+# b)
+myList2 <- list(Evi2, Evi3, Evi3R); myList2
+
+# c)
+myListC12 <- c(myList1,myList2); myListC12
+
+# d)
+Evi2_v1 <- data.frame(Evi2); Evi2_v1
+
+# e)
+myListC12 [[6]]<- Evi2_v1; myListC12
+
+# f)
+myListC12[[3]] <- NULL; myListC12
+
+# g)
+names(myListC12) <- c("evi34", "evi62", "Evi3", "Evi3R", "Evi2_v1"); myListC12
+
+
+
+
+## 6 Functions }
+mySumSqDev <- function(x){
+  m <- sum(x)/length(x)
+  xb <- sum((x-m)^2)
+    return(xb)
+}
+mySumSqDev(x)
+
+# a)
+myVar <- function(x) {
+  y=(mySumSqDev(x))/(length(x)-1)
+    return (y)
+}
+myVar(x)
+
+
+# b)
+myStdDev <- function(x){
+  s <- sqrt(myVar(x))
+    return(s)
+}  
+  
+# c)
+x <- c(4,6,2,8)
+mySumSqDev(x) # = 20
+
+
+# d)
+y <- c(2,1,3,7,5)
+myVar(y) # = 5.8
+
+
+# e)
+z <- c(1,5,9)
+myStdDev(z) # = 4
 
